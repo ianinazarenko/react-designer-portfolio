@@ -93,10 +93,9 @@ const BarsWrapper = styled.div`
   button {
     position: fixed;
     top: 2rem;
-    right: 1.25rem;
-    background-color: var(--white);
+    right: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.5);
     border: none;
-    /* box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25); */
   }
 
   @media (min-width: 768px) {

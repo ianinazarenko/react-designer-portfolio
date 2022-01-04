@@ -10,6 +10,8 @@ function App() {
       <SideBar />
       <Home />
       <About />
+      <Skills />
+      <Portfolio />
       <Contacts />
     </div>
   )

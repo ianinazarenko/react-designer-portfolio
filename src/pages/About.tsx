@@ -1,8 +1,9 @@
 import React from 'react'
+import styled from 'styled-components'
 
 function About() {
   return (
-    <div id="about" className="g--section g--grey-section">
+    <Wrapper id="about" className="g--section g--grey-section">
       <div className="g--section-centered">
         <h1 className="g--section-title">About</h1>
         <p>
@@ -15,8 +16,15 @@ function About() {
         </p>
         <p>Ready to implement excellent projects with wonderful people.</p>
       </div>
-    </div>
+    </Wrapper>
   )
 }
+
+const Wrapper = styled.div`
+  p {
+    max-width: 27rem;
+    margin: 0 auto 1.5rem;
+  }
+`
 
 export default About
