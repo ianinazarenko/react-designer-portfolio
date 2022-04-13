@@ -10,18 +10,12 @@ export default function LangToggle({ size }: { size: 'small' | 'big' }) {
 
   return (
     <Wrapper size={size}>
-      <span
-        className={lang === 'RUS' ? 'active' : ''}
-        onClick={() => changeLang(Lang.RUS)}
-      >
-        RUS
+      <span className={lang === 'RUS' ? 'active' : ''} onClick={() => changeLang(Lang.RUS)}>
+        {lang === Lang.ENG ? 'RUS' : 'РУС'}
       </span>
       <span> | </span>
-      <span
-        className={lang === 'ENG' ? 'active' : ''}
-        onClick={() => changeLang(Lang.ENG)}
-      >
-        ENG
+      <span className={lang === 'ENG' ? 'active' : ''} onClick={() => changeLang(Lang.ENG)}>
+        {lang === Lang.ENG ? 'ENG' : 'АНГ'}
       </span>
     </Wrapper>
   )

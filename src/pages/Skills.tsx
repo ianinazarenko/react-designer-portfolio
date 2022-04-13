@@ -3,13 +3,24 @@ import styled from 'styled-components'
 import { Ps, Ai, Ae, Figma } from '../assets/icons'
 import FilledStar from '../assets/icons/Star.svg'
 import OutlinedStar from '../assets/icons/Star-1.svg'
+import { useGlobalContext } from '../context/GlobalContext'
+import { Lang } from '../enums'
 
 function Skills() {
+  const {
+    state: { lang },
+  } = useGlobalContext()
+
   return (
     <Wrapper id="skills" className="g--section">
       <div className="g--section-centered">
-        <h1 className="g--section-title">Skills</h1>
-        <p className="description">I have experience in programms below:</p>
+        <h1 className="g--section-title">{lang === Lang.ENG ? 'Skills' : 'Навыки'}</h1>
+        <p className="description">
+          {lang === Lang.ENG
+            ? 'I have experience in programms below'
+            : 'У меня есть опыт в следующих программах'}
+          :
+        </p>
         <div className="prog-container">
           <div className="prog-item">
             <div className="img-container">

@@ -72,6 +72,9 @@ p {
   background-color: var(--grey);
 }
 
+[id] {
+  scroll-margin-top: 3rem;
+}
 /* @media screen (min-width: 960px) {
   .g--section {
     max-width: ;

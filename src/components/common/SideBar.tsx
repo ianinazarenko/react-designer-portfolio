@@ -3,10 +3,12 @@ import { RiCloseFill } from 'react-icons/ri'
 import { useGlobalContext } from '../../context/GlobalContext'
 import { VscThreeBars } from 'react-icons/vsc'
 import LangToggle from './LangToggle'
+import navBarData from '../../data/navBarData'
+import { Lang } from '../../enums'
 
 function SideBar() {
   const {
-    state: { isSideBarShown },
+    state: { isSideBarShown, lang },
     toggleSidebar,
   } = useGlobalContext()
 
@@ -25,10 +27,12 @@ function SideBar() {
             <RiCloseFill size={42} />
           </button>
           <ul>
-            <a href="#home" onClick={toggleSidebar}>
-              <li>Home</li>
-            </a>
-            <a href="#about" onClick={toggleSidebar}>
+            {navBarData.map((d) => (
+              <a href={d.href} onClick={toggleSidebar}>
+                <li>{lang === Lang.ENG ? d.titleEng : d.titleRus}</li>
+              </a>
+            ))}
+            {/* <a href="#about" onClick={toggleSidebar}>
               <li>About me</li>
             </a>
             <a href="#skills" onClick={toggleSidebar}>
@@ -39,7 +43,7 @@ function SideBar() {
             </a>
             <a href="#contacts" onClick={toggleSidebar}>
               <li>Contacts</li>
-            </a>
+            </a> */}
           </ul>
           <LangToggle size="big" />
         </aside>

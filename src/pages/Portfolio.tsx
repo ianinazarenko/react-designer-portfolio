@@ -1,34 +1,46 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useGlobalContext } from '../context/GlobalContext'
+import { Lang } from '../enums'
 
 function Portfolio() {
+  const {
+    state: { lang },
+  } = useGlobalContext()
+
   return (
     <Wrapper id="portfolio" className="g--section g--grey-section">
       <div className="g--section-centered">
-        <h1 className="g--section-title">Portfolio</h1>
+        <h1 className="g--section-title">{lang === Lang.ENG ? 'Portfolio' : 'Портфолио'}</h1>
         <div className="works-container">
           <a href="https://www.google.com" target="_blank" rel="noreferrer">
             <div className="work-item">
               <div className="img-container">
-                <img src="images/new_collection_2k.png" alt="Reebok" />
+                <img src="assets/images/new_collection_2k.png" alt="Reebok" />
               </div>
-              <span>Online fashion store - Homepage</span>
+              <span>
+                {lang === Lang.ENG
+                  ? 'Online fashion store – Homepage'
+                  : 'Онлайн-магазин одежды – Главная страница'}
+              </span>
             </div>
           </a>
           <a href="https://www.google.com" target="_blank" rel="noreferrer">
             <div className="work-item">
               <div className="img-container">
-                <img src="images/reebok_web_2k.png" alt="Reebok" />
+                <img src="assets/images/reebok_web_2k.png" alt="Reebok" />
               </div>
-              <span>Reebok Store - concept</span>
+              <span>{lang === Lang.ENG ? 'Reebok Store – concept' : 'Магазин Reebok – концепт'}</span>
             </div>
           </a>
           <a href="https://www.google.com" target="_blank" rel="noreferrer">
             <div className="work-item">
               <div className="img-container">
-                <img src="images/braun_2k.png" alt="Reebok" />
+                <img src="assets/images/braun_2k.png" alt="Reebok" />
               </div>
-              <span>Braun landing page - concept</span>
+              <span>
+                {lang === Lang.ENG ? 'Braun landing page – concept' : 'Концепт лэндинг – страницы для Braun'}
+              </span>
             </div>
           </a>
         </div>

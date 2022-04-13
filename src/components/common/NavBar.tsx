@@ -1,24 +1,22 @@
 import styled from 'styled-components'
+import navBarData from '../../data/navBarData'
+import { useGlobalContext } from '../../context/GlobalContext'
+import { Lang } from '../../enums'
 
 export default function NavBar() {
+  const {
+    state: { lang },
+  } = useGlobalContext()
+
   return (
     <Wrapper>
       <nav className="g--section-centered">
         <ul>
-          <li onClick={() => window.scrollTo(0, 0)}>Home</li>
-
-          <a href="#about">
-            <li>About me</li>
-          </a>
-          <a href="#skills">
-            <li>Skills</li>
-          </a>
-          <a href="#portfolio">
-            <li>Portfolio</li>
-          </a>
-          <a href="#contacts">
-            <li>Contacts</li>
-          </a>
+          {navBarData.map((d) => (
+            <a href={d.href}>
+              <li>{lang === Lang.ENG ? d.titleEng : d.titleRus}</li>
+            </a>
+          ))}
         </ul>
       </nav>
     </Wrapper>

@@ -1,11 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
-  FaLinkedinIn,
-  FaInstagram,
-  FaBehance,
-  FaDribbble,
-} from 'react-icons/fa'
+import { FaLinkedinIn, FaInstagram, FaBehance, FaDribbble } from 'react-icons/fa'
+import { useGlobalContext } from '../context/GlobalContext'
+import { Lang } from '../enums'
 
 function Contacts() {
   const pGreyText = {
@@ -15,13 +12,26 @@ function Contacts() {
     margin: '1rem 0 1.5rem',
   }
 
+  const {
+    state: { lang },
+  } = useGlobalContext()
+
   return (
     <Wrapper id="contacts" className="g--section g--section-centered">
-      <h1>Contacts</h1>
+      <h1>{lang === Lang.ENG ? 'Contacts' : 'Контакты'}</h1>
       <p style={pMoreMargin}>
-        Want to know more or just chat? <br /> You are welcome!
+        {lang === Lang.ENG ? (
+          <span>
+            Want to know more or just chat? <br /> You are welcome!
+          </span>
+        ) : (
+          <span>
+            Если у вас возникли вопросы
+            <br /> Не стесняйтесь, пишите!
+          </span>
+        )}
       </p>
-      <button>Send message</button>
+      <button>{lang === Lang.ENG ? 'Send message' : 'Написать'}</button>
       <div>
         <a href="https://www.linkedin.com" rel="noreferrer" target={'_blank'}>
           <FaLinkedinIn size={'2.5rem'} />
@@ -37,7 +47,8 @@ function Contacts() {
         </a>
       </div>
       <p style={pGreyText}>
-        Like me on <br /> LinkedIn, Instagram, Behance, Dribble
+        {lang === Lang.ENG ? 'Like me on' : 'Поставьте лайк моим работам на'} <br /> LinkedIn, Instagram,
+        Behance, Dribble
       </p>
     </Wrapper>
   )

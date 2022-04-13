@@ -1,19 +1,40 @@
 import styled from 'styled-components'
 import DesignerPortrait from '../assets/images/designer.jpg'
 import LangToggle from '../components/common/LangToggle'
+import { useGlobalContext } from '../context/GlobalContext'
+import { Lang } from '../enums'
 
 export default function Home() {
+  const {
+    state: { lang },
+  } = useGlobalContext()
+
   return (
     <Wrapper id="home" className="g--section">
       <div className="g--section-centered container">
         <header>
-          <h1>
-            GOAT <br /> Designer
-          </h1>
-          <p>
-            Best UI | UX Designer <br />
-            on Earth
-          </p>
+          {lang === Lang.ENG ? (
+            <h1>
+              GOAT <br /> Designer
+            </h1>
+          ) : (
+            <h1>
+              СУПЕР <br /> Дизайнер
+            </h1>
+          )}
+
+          {lang === Lang.ENG ? (
+            <p>
+              Best UI | UX Designer <br />
+              on Earth
+            </p>
+          ) : (
+            <p>
+              Лучший UI | UX Дизайнер <br />
+              на Земле
+            </p>
+          )}
+
           <div className="lang-container">
             <LangToggle size="small" />
           </div>
